@@ -93,7 +93,7 @@ namespace TJS {
         auto* ret = new char[len * sizeof(tjs_char) + sizeof(size_t)];
 
         len = wcslen(buf);
-        memcpy_s(ret, len * sizeof(wchar_t) + 8, ptr, len * sizeof(wchar_t) + 8);
+        memcpy(ret, ptr, len * sizeof(wchar_t) + 8);
 
         *reinterpret_cast<size_t*>(ret) = len; // embed size
         return reinterpret_cast<tjs_char*>(ret + sizeof(size_t));

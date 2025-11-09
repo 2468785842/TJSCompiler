@@ -52,7 +52,7 @@
 #include <cwchar>
 #include <cstdlib>
 #include <cstdio>
-#include <malloc.h>
+#include <memory>
 
 #include <vector>
 #include <string>

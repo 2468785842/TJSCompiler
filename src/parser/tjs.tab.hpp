@@ -45,7 +45,7 @@
 #ifndef YY_YY_TJS_TAB_HPP_INCLUDED
 # define YY_YY_TJS_TAB_HPP_INCLUDED
 // "%code requires" blocks.
-#line 36 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 36 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
 
 namespace TJS {
     class tTJSExprNode;
@@ -185,7 +185,7 @@ namespace TJS {
 # define YYDEBUG 0
 #endif
 
-#line 6 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 6 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
 namespace TJS {
 #line 191 "tjs.tab.hpp"
 
@@ -205,7 +205,7 @@ namespace TJS {
     /// Symbol semantic values.
     union value_type
     {
-#line 31 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 31 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
 
 	tjs_int			num;
 	tTJSExprNode *		np;
@@ -1129,7 +1129,7 @@ namespace TJS {
   };
 
 
-#line 6 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 6 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
 } // TJS
 #line 1135 "tjs.tab.hpp"
 

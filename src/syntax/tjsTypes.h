@@ -10,6 +10,7 @@
 /*---------------------------------------------------------------------------*/
 #pragma once
 
+#include <cstddef>
 #include <cstdint>
 
 #ifdef HAVE_CONFIG_H

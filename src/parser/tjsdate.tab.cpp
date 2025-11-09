@@ -35,9 +35,9 @@
 // private implementation details that can be changed or removed.
 
 // "%code top" blocks.
-#line 7 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 7 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
 
-#include <malloc.h>
+#include <memory>
 #include "tjsDateParser.h"
 
 #line 44 "tjsdate.tab.cpp"
@@ -119,7 +119,7 @@
 #define YYERROR         goto yyerrorlab
 #define YYRECOVERING()  (!!yyerrstatus_)
 
-#line 5 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 5 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
 namespace TJSDate {
 #line 125 "tjsdate.tab.cpp"
 
@@ -576,77 +576,77 @@ namespace TJSDate {
           switch (yyn)
             {
   case 3: // date_time_string: wday_omittable DP_NUMBER month DP_NUMBER time tz_omittable
-#line 58 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 58 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
                                                                                                 {	ptr->SetMDay((yystack_[4].value.val));
 															ptr->SetYear((yystack_[2].value.val)); }
 #line 583 "tjsdate.tab.cpp"
     break;
 
   case 4: // date_time_string: wday_omittable DP_NUMBER '-' month DP_NUMBER time tz_omittable
-#line 65 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 65 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
                                                                                                 {	ptr->SetMDay((yystack_[5].value.val));
 															ptr->SetYear((yystack_[2].value.val)); }
 #line 590 "tjsdate.tab.cpp"
     break;
 
   case 5: // date_time_string: wday_omittable DP_NUMBER '-' month '-' DP_NUMBER time tz_omittable
-#line 72 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 72 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
                                                                                                 {	ptr->SetMDay((yystack_[6].value.val));
 															ptr->SetYear((yystack_[2].value.val)); }
 #line 597 "tjsdate.tab.cpp"
     break;
 
   case 6: // date_time_string: wday_omittable month DP_NUMBER DP_NUMBER time tz_omittable
-#line 79 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 79 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
                                                                                                 {	ptr->SetMDay((yystack_[3].value.val));
 															ptr->SetYear((yystack_[2].value.val)); }
 #line 604 "tjsdate.tab.cpp"
     break;
 
   case 7: // date_time_string: wday_omittable month '-' DP_NUMBER DP_NUMBER time tz_omittable
-#line 86 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 86 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
                                                                                                 {	ptr->SetMDay((yystack_[3].value.val));
 															ptr->SetYear((yystack_[2].value.val)); }
 #line 611 "tjsdate.tab.cpp"
     break;
 
   case 8: // date_time_string: wday_omittable month '-' DP_NUMBER '-' DP_NUMBER time tz_omittable
-#line 93 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 93 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
                                                                                                 {	ptr->SetMDay((yystack_[4].value.val));
 															ptr->SetYear((yystack_[2].value.val)); }
 #line 618 "tjsdate.tab.cpp"
     break;
 
   case 9: // date_time_string: wday_omittable DP_NUMBER month time DP_NUMBER tz_omittable
-#line 101 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 101 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
                                                                                                 {	ptr->SetMDay((yystack_[4].value.val));
 															ptr->SetYear((yystack_[1].value.val)); }
 #line 625 "tjsdate.tab.cpp"
     break;
 
   case 10: // date_time_string: wday_omittable DP_NUMBER '-' month time DP_NUMBER tz_omittable
-#line 109 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 109 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
                                                                                                 {	ptr->SetMDay((yystack_[5].value.val));
 															ptr->SetYear((yystack_[1].value.val)); }
 #line 632 "tjsdate.tab.cpp"
     break;
 
   case 11: // date_time_string: wday_omittable month DP_NUMBER time DP_NUMBER tz_omittable
-#line 116 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 116 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
                                                                                                 {	ptr->SetMDay((yystack_[3].value.val));
 															ptr->SetYear((yystack_[1].value.val)); }
 #line 639 "tjsdate.tab.cpp"
     break;
 
   case 12: // date_time_string: wday_omittable month '-' DP_NUMBER time DP_NUMBER tz_omittable
-#line 123 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 123 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
                                                                                                 {	ptr->SetMDay((yystack_[3].value.val));
 															ptr->SetYear((yystack_[1].value.val)); }
 #line 646 "tjsdate.tab.cpp"
     break;
 
   case 13: // date_time_string: wday_omittable DP_NUMBER hyphen_or_slash DP_NUMBER hyphen_or_slash DP_NUMBER time tz_omittable
-#line 131 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 131 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
                                                                                                 {	ptr->SetMonth((yystack_[4].value.val)-1);
 															ptr->SetYear((yystack_[6].value.val));
 															ptr->SetMDay((yystack_[2].value.val)); }
@@ -654,19 +654,19 @@ namespace TJSDate {
     break;
 
   case 18: // month: DP_MONTH
-#line 148 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 148 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
                                                                                                         { ptr->SetMonth((yystack_[0].value.val)); }
 #line 660 "tjsdate.tab.cpp"
     break;
 
   case 21: // time_sub_sec_omittable: '.' DP_NUMBER
-#line 158 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 158 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
                                                                                                 { /* TODO: sub-seconds support */ }
 #line 666 "tjsdate.tab.cpp"
     break;
 
   case 23: // time_hms: DP_NUMBER ':' DP_NUMBER ':' DP_NUMBER time_sub_sec_omittable
-#line 166 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 166 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
                 {
 			ptr->SetHours((yystack_[5].value.val));
 			ptr->SetMin((yystack_[3].value.val));
@@ -676,7 +676,7 @@ namespace TJSDate {
     break;
 
   case 24: // time_hms: DP_NUMBER ':' DP_NUMBER
-#line 173 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 173 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
                 {
 			ptr->SetHours((yystack_[2].value.val));
 			ptr->SetMin((yystack_[0].value.val));
@@ -686,37 +686,37 @@ namespace TJSDate {
     break;
 
   case 25: // am_or_pm: DP_AM
-#line 181 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 181 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
                                                                                                         { ptr->SetAMPM(false); }
 #line 692 "tjsdate.tab.cpp"
     break;
 
   case 26: // am_or_pm: DP_PM
-#line 182 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 182 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
                                                                                                         { ptr->SetAMPM(true); }
 #line 698 "tjsdate.tab.cpp"
     break;
 
   case 30: // tz_name_omittable: DP_TZ
-#line 192 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 192 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
                                                                                                         { ptr->SetTimeZone((yystack_[0].value.val)); }
 #line 704 "tjsdate.tab.cpp"
     break;
 
   case 32: // tz_offset_omittable: '+' DP_NUMBER
-#line 197 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 197 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
                                                                                                 { ptr->SetTimeZoneOffset((yystack_[0].value.val)); }
 #line 710 "tjsdate.tab.cpp"
     break;
 
   case 33: // tz_offset_omittable: '-' DP_NUMBER
-#line 198 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 198 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
                                                                                                 { ptr->SetTimeZoneOffset(-(yystack_[0].value.val)); }
 #line 716 "tjsdate.tab.cpp"
     break;
 
   case 35: // $@1: %empty
-#line 205 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 205 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
                                                                                                                 { ptr->SkipToRightParenthesis(); }
 #line 722 "tjsdate.tab.cpp"
     break;
@@ -1124,9 +1124,9 @@ namespace TJSDate {
       return symbol_kind::S_YYUNDEF;
   }
 
-#line 5 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 5 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
 } // TJSDate
 #line 1130 "tjsdate.tab.cpp"
 
-#line 217 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 217 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
 

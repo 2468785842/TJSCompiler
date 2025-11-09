@@ -10,9 +10,22 @@
       "name": "default",
       "hidden": true,
       "cacheVariables": {
+        "CMAKE_POLICY_VERSION_MINIMUM": "3.5",
         "CMAKE_EXPORT_COMPILE_COMMANDS": true,
         "CMAKE_C_COMPILER_WORKS": true,
         "CMAKE_CXX_COMPILER_WORKS": true
+      }
+    },
+    {
+      "name": "MacOS",
+      "displayName": "MacOS",
+      "description": "MacOS Compile",
+      "inherits": "default",
+      "binaryDir": "${sourceDir}/build/macos",
+      "condition": {
+        "type": "equals",
+        "lhs": "${hostSystemName}",
+        "rhs": "Darwin"
       }
     },
     {

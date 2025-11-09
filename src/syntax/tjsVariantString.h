@@ -85,9 +85,9 @@ namespace TJS {
 
             if (len > TJS_VS_SHORT_LEN) {
                 LongString = TJSVS_malloc(len + 1);
-                wcsncpy_s(LongString, len + 1, ref, len);
+                wcsncpy(LongString, ref, len);
             } else {
-                wcsncpy_s(ShortString, TJS_VS_SHORT_LEN + 1, ref, len);
+                wcsncpy(ShortString, ref, len);
             }
             Length = static_cast<tjs_int>(len);
         }
@@ -99,12 +99,11 @@ namespace TJS {
             const int len = static_cast<tjs_int>(strlen(ref));
             if (len == -1) TJSThrowNarrowToWideConversionError();
 
-            size_t numCvt{};
             if (len > TJS_VS_SHORT_LEN) {
                 LongString = TJSVS_malloc(len + 1);
             }
 
-            mbsrtowcs_s(&numCvt, len > TJS_VS_SHORT_LEN ? LongString : ShortString, len + 1, &ref, len, nullptr);
+            std::size_t numCvt = 1 + mbsrtowcs(len > TJS_VS_SHORT_LEN ? LongString : ShortString, &ref, len, nullptr);
             Length = static_cast<tjs_int>(numCvt);
         }
 

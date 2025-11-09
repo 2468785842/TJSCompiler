@@ -35,9 +35,9 @@
 // private implementation details that can be changed or removed.
 
 // "%code top" blocks.
-#line 10 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 10 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
 
-#include <malloc.h>
+#include <memory>
 
 #include "tjs.h"
 #include "tjsCompileControl.h"
@@ -126,7 +126,7 @@
 #define YYERROR         goto yyerrorlab
 #define YYRECOVERING()  (!!yyerrstatus_)
 
-#line 6 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 6 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
 namespace TJSPP {
 #line 132 "tjspp.tab.cpp"
 
@@ -583,151 +583,151 @@ namespace TJSPP {
           switch (yyn)
             {
   case 2: // input: expr
-#line 86 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 86 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                                         { ptr->Result = (yystack_[0].value.val); }
 #line 589 "tjspp.tab.cpp"
     break;
 
   case 3: // expr: expr "," expr
-#line 90 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 90 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                                 { (yylhs.value.val) = (yystack_[0].value.val); }
 #line 595 "tjspp.tab.cpp"
     break;
 
   case 4: // expr: PT_SYMBOL "=" expr
-#line 91 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 91 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                         { ptr->GetTJS()->SetPPValue(ptr->GetString((yystack_[2].value.nv)), (yystack_[0].value.val)); (yylhs.value.val) = (yystack_[0].value.val); }
 #line 601 "tjspp.tab.cpp"
     break;
 
   case 5: // expr: expr "!=" expr
-#line 92 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 92 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                                 { (yylhs.value.val) = (yystack_[2].value.val) != (yystack_[0].value.val); }
 #line 607 "tjspp.tab.cpp"
     break;
 
   case 6: // expr: expr "==" expr
-#line 93 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 93 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                                 { (yylhs.value.val) = (yystack_[2].value.val) == (yystack_[0].value.val); }
 #line 613 "tjspp.tab.cpp"
     break;
 
   case 7: // expr: expr "||" expr
-#line 94 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 94 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                                 { (yylhs.value.val) = (yystack_[2].value.val) || (yystack_[0].value.val); }
 #line 619 "tjspp.tab.cpp"
     break;
 
   case 8: // expr: expr "&&" expr
-#line 95 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 95 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                                 { (yylhs.value.val) = (yystack_[2].value.val) && (yystack_[0].value.val); }
 #line 625 "tjspp.tab.cpp"
     break;
 
   case 9: // expr: expr "|" expr
-#line 96 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 96 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                                 { (yylhs.value.val) = (yystack_[2].value.val) | (yystack_[0].value.val); }
 #line 631 "tjspp.tab.cpp"
     break;
 
   case 10: // expr: expr "^" expr
-#line 97 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 97 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                                 { (yylhs.value.val) = (yystack_[2].value.val) ^ (yystack_[0].value.val); }
 #line 637 "tjspp.tab.cpp"
     break;
 
   case 11: // expr: expr "&" expr
-#line 98 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 98 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                                 { (yylhs.value.val) = (yystack_[2].value.val) & (yystack_[0].value.val); }
 #line 643 "tjspp.tab.cpp"
     break;
 
   case 12: // expr: expr "<" expr
-#line 99 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 99 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                                 { (yylhs.value.val) = (yystack_[2].value.val) < (yystack_[0].value.val); }
 #line 649 "tjspp.tab.cpp"
     break;
 
   case 13: // expr: expr ">" expr
-#line 100 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 100 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                                 { (yylhs.value.val) = (yystack_[2].value.val) > (yystack_[0].value.val); }
 #line 655 "tjspp.tab.cpp"
     break;
 
   case 14: // expr: expr ">=" expr
-#line 101 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 101 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                                 { (yylhs.value.val) = (yystack_[2].value.val) >= (yystack_[0].value.val); }
 #line 661 "tjspp.tab.cpp"
     break;
 
   case 15: // expr: expr "<=" expr
-#line 102 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 102 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                                 { (yylhs.value.val) = (yystack_[2].value.val) <= (yystack_[0].value.val); }
 #line 667 "tjspp.tab.cpp"
     break;
 
   case 16: // expr: expr "+" expr
-#line 103 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 103 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                                 { (yylhs.value.val) = (yystack_[2].value.val) + (yystack_[0].value.val); }
 #line 673 "tjspp.tab.cpp"
     break;
 
   case 17: // expr: expr "-" expr
-#line 104 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 104 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                                 { (yylhs.value.val) = (yystack_[2].value.val) - (yystack_[0].value.val); }
 #line 679 "tjspp.tab.cpp"
     break;
 
   case 18: // expr: expr "%" expr
-#line 105 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 105 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                                 { (yylhs.value.val) = (yystack_[2].value.val) % (yystack_[0].value.val); }
 #line 685 "tjspp.tab.cpp"
     break;
 
   case 19: // expr: expr "*" expr
-#line 106 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 106 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                                 { (yylhs.value.val) = (yystack_[2].value.val) * (yystack_[0].value.val); }
 #line 691 "tjspp.tab.cpp"
     break;
 
   case 20: // expr: expr "/" expr
-#line 107 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 107 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                                 { if((yystack_[0].value.val)==0) { YYABORT; } else { (yylhs.value.val) = (yystack_[2].value.val) / (yystack_[0].value.val); } }
 #line 697 "tjspp.tab.cpp"
     break;
 
   case 21: // expr: "!" expr
-#line 108 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 108 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                                         { (yylhs.value.val) = ! (yystack_[0].value.val); }
 #line 703 "tjspp.tab.cpp"
     break;
 
   case 22: // expr: "+" expr
-#line 109 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 109 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                         { (yylhs.value.val) = + (yystack_[0].value.val); }
 #line 709 "tjspp.tab.cpp"
     break;
 
   case 23: // expr: "-" expr
-#line 110 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 110 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                         { (yylhs.value.val) = - (yystack_[0].value.val); }
 #line 715 "tjspp.tab.cpp"
     break;
 
   case 24: // expr: "(" expr ")"
-#line 111 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 111 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                                 { (yylhs.value.val) = (yystack_[1].value.val); }
 #line 721 "tjspp.tab.cpp"
     break;
 
   case 25: // expr: PT_NUM
-#line 112 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 112 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                                         { (yylhs.value.val) = (yystack_[0].value.val); }
 #line 727 "tjspp.tab.cpp"
     break;
 
   case 26: // expr: PT_SYMBOL
-#line 113 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 113 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
                                                         { (yylhs.value.val) = ptr->GetTJS()->GetPPValue(ptr->GetString((yystack_[0].value.nv))); }
 #line 733 "tjspp.tab.cpp"
     break;
@@ -1137,9 +1137,9 @@ namespace TJSPP {
       return symbol_kind::S_YYUNDEF;
   }
 
-#line 6 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 6 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
 } // TJSPP
 #line 1143 "tjspp.tab.cpp"
 
-#line 116 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 116 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
 

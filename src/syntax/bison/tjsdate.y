@@ -5,7 +5,7 @@
 %define api.namespace {TJSDate}
 
 %code top {
-#include <malloc.h>
+#include <memory>
 #include "tjsDateParser.h"
 }
 

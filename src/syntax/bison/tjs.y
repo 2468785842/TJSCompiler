@@ -7,7 +7,7 @@
 
 %code top
 {
-#include <malloc.h>
+#include <memory>
 
 #include "tjsError.h"
 #include "tjsArray.h"

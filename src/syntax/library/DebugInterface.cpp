@@ -7,56 +7,56 @@
 void TVPEnsureDataPathDirectory() {
 }
 
-void tTJSNC_Debug::tTVPLogStreamHolder::Open(const wchar_t* const& mode) {
-    if (OpenFailed) return; // no more try
-
-    try {
-        wchar_t filename[260];
-        if (TVPLogLocation.GetLen() == 0) {
-            Stream = nullptr;
-            OpenFailed = true;
-        } else {
-            // no log location specified
-            TJS_strcpy(filename, TVPNativeLogLocation);
-            TJS_strcat(filename, TJS_W("./krkr.console.log"));
-            TVPEnsureDataPathDirectory();
-            Stream = _wfopen(filename, mode);
-            if (!Stream) OpenFailed = true;
-        }
-
-        if (Stream) {
-            fseek(Stream, 0, SEEK_END);
-            if (ftell(Stream) == 0) {
-                // write BOM
-                // TODO: 32-bit unicode support
-                fwrite(TJS_N("\xff\xfe"), 1, 2, Stream); // indicate unicode text
-            }
-
-            ttstr separator{TJS_W("\r")};
-            Log(separator);
-
-            static tjs_char timebuf[80];
-
-            tm struct_tm{};
-            time_t timer;
-            timer = time(&timer);
-
-            localtime_s(&struct_tm, &timer);
-            TJS_strftime(timebuf, 79, TJS_W("%#c"), &struct_tm);
-
-            Log(ttstr(TJS_W("Logging to ")) + ttstr(filename) + TJS_W(" started on ") + timebuf);
-        }
-    } catch (...) {
-        OpenFailed = true;
-    }
-}
+// void tTJSNC_Debug::tTVPLogStreamHolder::Open(const wchar_t* const& mode) {
+//     if (OpenFailed) return; // no more try
+//
+//     try {
+//         wchar_t filename[260];
+//         if (TVPLogLocation.GetLen() == 0) {
+//             Stream = nullptr;
+//             OpenFailed = true;
+//         } else {
+//             // no log location specified
+//             // TJS_strcpy(filename, TVPNativeLogLocation);
+//             // TJS_strcat(filename, TJS_W("./krkr.console.log"));
+//             // TVPEnsureDataPathDirectory();
+//             // Stream = fopen(filename, mode);
+//             // if (!Stream) OpenFailed = true;
+//         }
+//
+//         if (Stream) {
+//             fseek(Stream, 0, SEEK_END);
+//             if (ftell(Stream) == 0) {
+//                 // write BOM
+//                 // TODO: 32-bit unicode support
+//                 fwrite(TJS_N("\xff\xfe"), 1, 2, Stream); // indicate unicode text
+//             }
+//
+//             ttstr separator{TJS_W("\r")};
+//             Log(separator);
+//
+//             static tjs_char timebuf[80];
+//
+//             tm struct_tm{};
+//             time_t timer;
+//             timer = time(&timer);
+//
+//             localtime(&timer);
+//             TJS_strftime(timebuf, 79, TJS_W("%#c"), &struct_tm);
+//
+//             Log(ttstr(TJS_W("Logging to ")) + ttstr(filename) + TJS_W(" started on ") + timebuf);
+//         }
+//     } catch (...) {
+//         OpenFailed = true;
+//     }
+// }
 
 //---------------------------------------------------------------------------
 void tTJSNC_Debug::tTVPLogStreamHolder::Clear() {
     // clear log text
-    if (Stream) fclose(Stream);
+    // if (Stream) fclose(Stream);
 
-    Open(TJS_W("wb"));
+    // Open(TJS_W("wb"));
 }
 
 /**
@@ -64,30 +64,30 @@ void tTJSNC_Debug::tTVPLogStreamHolder::Clear() {
  * @param text 文本
  */
 void tTJSNC_Debug::tTVPLogStreamHolder::Log(const ttstr& text) {
-    if (!Stream) Open(TJS_W("ab"));
-
-    try {
-        if (Stream) {
-            size_t len = text.GetLen() * sizeof(tjs_char);
-            if (len != fwrite(text.c_str(), 1, len, Stream)) {
-                // cannot write
-                fclose(Stream);
-                OpenFailed = true;
-                return;
-            }
-            fwrite(TJS_W("\n"), 1, 1 * sizeof(tjs_char), Stream);
-
-            // flush
-            fflush(Stream);
-        }
-    } catch (...) {
-        try {
-            if (Stream) fclose(Stream);
-        } catch (...) {
-        }
-
-        OpenFailed = true;
-    }
+    // if (!Stream) Open(TJS_W("ab"));
+    //
+    // try {
+    //     if (Stream) {
+    //         size_t len = text.GetLen() * sizeof(tjs_char);
+    //         if (len != fwrite(text.c_str(), 1, len, Stream)) {
+    //             // cannot write
+    //             fclose(Stream);
+    //             OpenFailed = true;
+    //             return;
+    //         }
+    //         fwrite(TJS_W("\n"), 1, 1 * sizeof(tjs_char), Stream);
+    //
+    //         // flush
+    //         fflush(Stream);
+    //     }
+    // } catch (...) {
+    //     try {
+    //         if (Stream) fclose(Stream);
+    //     } catch (...) {
+    //     }
+    //
+    //     OpenFailed = true;
+    // }
 }
 
 void tTJSNC_Debug::TVPSetOnLog(const TVPLog& func) {
@@ -200,7 +200,7 @@ void tTJSNC_Debug::TVPAddLog(const ttstr& line, bool appendtoimportant) {
 
     if (prevlogtime != timer) {
         tm struct_tm{};
-        localtime_s(&struct_tm, &timer);
+        localtime(&timer);
         TJS_strftime(timebuf, 39, TJS_W("%H:%M:%S"), &struct_tm);
         prevlogtime = timer;
         prevtimebuf = timebuf;

@@ -8,7 +8,7 @@
 %lex-param   { tTJSPPExprParser *ptr }
 
 %code top {
-#include <malloc.h>
+#include <memory>
 
 #include "tjs.h"
 #include "tjsCompileControl.h"

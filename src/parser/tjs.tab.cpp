@@ -35,9 +35,9 @@
 // private implementation details that can be changed or removed.
 
 // "%code top" blocks.
-#line 9 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 9 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
 
-#include <malloc.h>
+#include <memory>
 
 #include "tjsError.h"
 #include "tjsArray.h"
@@ -133,7 +133,7 @@
 #define YYERROR         goto yyerrorlab
 #define YYRECOVERING()  (!!yyerrstatus_)
 
-#line 6 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 6 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
 namespace TJS {
 #line 139 "tjs.tab.cpp"
 
@@ -590,20 +590,20 @@ namespace TJS {
           switch (yyn)
             {
   case 3: // $@1: %empty
-#line 201 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 201 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                         { ptr->PushContextStack(TJS_W("global"),
 												ctTopLevel); }
 #line 597 "tjs.tab.cpp"
     break;
 
   case 4: // global_list: $@1 def_list
-#line 203 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 203 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { ptr->PopContextStack(); }
 #line 603 "tjs.tab.cpp"
     break;
 
   case 7: // def_list: def_list error ";"
-#line 210 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 210 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { if(ptr->CompileErrorCount>20)
 												YYABORT;
 											  else yyerrok; }
@@ -611,172 +611,172 @@ namespace TJS {
     break;
 
   case 11: // statement: expr ";"
-#line 224 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 224 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { cc->CreateExprCode((yystack_[1].value.np)); }
 #line 617 "tjs.tab.cpp"
     break;
 
   case 17: // statement: "break" ";"
-#line 230 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 230 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { cc->DoBreak(); }
 #line 623 "tjs.tab.cpp"
     break;
 
   case 18: // statement: "continue" ";"
-#line 231 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 231 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { cc->DoContinue(); }
 #line 629 "tjs.tab.cpp"
     break;
 
   case 19: // statement: "debugger" ";"
-#line 232 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 232 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { cc->DoDebugger(); }
 #line 635 "tjs.tab.cpp"
     break;
 
   case 30: // $@2: %empty
-#line 247 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 247 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { cc->EnterBlock(); }
 #line 641 "tjs.tab.cpp"
     break;
 
   case 31: // block: "{" $@2 def_list "}"
-#line 249 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 249 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { cc->ExitBlock(); }
 #line 647 "tjs.tab.cpp"
     break;
 
   case 32: // $@3: %empty
-#line 254 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 254 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { cc->EnterWhileCode(false); }
 #line 653 "tjs.tab.cpp"
     break;
 
   case 33: // $@4: %empty
-#line 255 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 255 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { cc->CreateWhileExprCode((yystack_[1].value.np), false); }
 #line 659 "tjs.tab.cpp"
     break;
 
   case 34: // while: "while" $@3 "(" expr ")" $@4 block_or_statement
-#line 256 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 256 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { cc->ExitWhileCode(false); }
 #line 665 "tjs.tab.cpp"
     break;
 
   case 35: // $@5: %empty
-#line 261 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 261 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { cc->EnterWhileCode(true); }
 #line 671 "tjs.tab.cpp"
     break;
 
   case 36: // $@6: %empty
-#line 264 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 264 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { cc->CreateWhileExprCode((yystack_[1].value.np), true); }
 #line 677 "tjs.tab.cpp"
     break;
 
   case 37: // do_while: "do" $@5 block_or_statement "while" "(" expr ")" $@6 ";"
-#line 265 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 265 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { cc->ExitWhileCode(true); }
 #line 683 "tjs.tab.cpp"
     break;
 
   case 38: // $@7: %empty
-#line 270 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 270 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { cc->EnterIfCode(); }
 #line 689 "tjs.tab.cpp"
     break;
 
   case 39: // $@8: %empty
-#line 271 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 271 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { cc->CreateIfExprCode((yystack_[0].value.np)); }
 #line 695 "tjs.tab.cpp"
     break;
 
   case 40: // if: "if" "(" $@7 expr $@8 ")" block_or_statement
-#line 272 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 272 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { cc->ExitIfCode(); }
 #line 701 "tjs.tab.cpp"
     break;
 
   case 41: // $@9: %empty
-#line 277 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 277 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { cc->EnterElseCode(); }
 #line 707 "tjs.tab.cpp"
     break;
 
   case 42: // if_else: if "else" $@9 block_or_statement
-#line 278 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 278 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { cc->ExitElseCode(); }
 #line 713 "tjs.tab.cpp"
     break;
 
   case 43: // for: "for" "(" for_first_clause ";" for_second_clause ";" for_third_clause ")" block_or_statement
-#line 287 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 287 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { cc->ExitForCode(); }
 #line 719 "tjs.tab.cpp"
     break;
 
   case 44: // for_first_clause: %empty
-#line 293 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 293 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { cc->EnterForCode(); }
 #line 725 "tjs.tab.cpp"
     break;
 
   case 45: // $@10: %empty
-#line 294 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 294 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                         { cc->EnterForCode(); }
 #line 731 "tjs.tab.cpp"
     break;
 
   case 47: // for_first_clause: expr
-#line 296 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 296 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { cc->EnterForCode();
 											  cc->CreateExprCode((yystack_[0].value.np)); }
 #line 738 "tjs.tab.cpp"
     break;
 
   case 48: // for_second_clause: %empty
-#line 302 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 302 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { cc->CreateForExprCode(NULL); }
 #line 744 "tjs.tab.cpp"
     break;
 
   case 49: // for_second_clause: expr
-#line 303 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 303 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { cc->CreateForExprCode((yystack_[0].value.np)); }
 #line 750 "tjs.tab.cpp"
     break;
 
   case 50: // for_third_clause: %empty
-#line 308 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 308 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { cc->SetForThirdExprCode(NULL); }
 #line 756 "tjs.tab.cpp"
     break;
 
   case 51: // for_third_clause: expr
-#line 309 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 309 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { cc->SetForThirdExprCode((yystack_[0].value.np)); }
 #line 762 "tjs.tab.cpp"
     break;
 
   case 57: // variable_id: T_SYMBOL variable_type
-#line 332 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 332 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { cc->AddLocalVariable(
 												lx->GetString((yystack_[1].value.num))); }
 #line 769 "tjs.tab.cpp"
     break;
 
   case 58: // variable_id: T_SYMBOL variable_type "=" expr_no_comma
-#line 334 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 334 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                         { cc->InitLocalVariable(
 											  lx->GetString((yystack_[3].value.num)), (yystack_[0].value.np)); }
 #line 776 "tjs.tab.cpp"
     break;
 
   case 66: // $@11: %empty
-#line 351 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 351 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { ptr->PushContextStack(
 												lx->GetString((yystack_[0].value.num)),
 											  ctFunction);
@@ -785,13 +785,13 @@ namespace TJS {
     break;
 
   case 67: // func_def: "function" T_SYMBOL $@11 func_decl_arg_opt variable_type block
-#line 356 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 356 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { cc->ExitBlock(); ptr->PopContextStack(); }
 #line 791 "tjs.tab.cpp"
     break;
 
   case 68: // $@12: %empty
-#line 361 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 361 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { ptr->PushContextStack(
 												TJS_W("(anonymous)"),
 											  ctExprFunction);
@@ -800,7 +800,7 @@ namespace TJS {
     break;
 
   case 69: // func_expr_def: "function" $@12 func_decl_arg_opt variable_type block
-#line 366 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 366 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { cc->ExitBlock();
 											  tTJSVariant v(cc);
 											  ptr->PopContextStack();
@@ -810,35 +810,35 @@ namespace TJS {
     break;
 
   case 78: // func_decl_arg: T_SYMBOL variable_type
-#line 393 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 393 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { cc->AddFunctionDeclArg(
 												lx->GetString((yystack_[1].value.num)), NULL); }
 #line 817 "tjs.tab.cpp"
     break;
 
   case 79: // func_decl_arg: T_SYMBOL variable_type "=" expr_no_comma
-#line 395 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 395 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                         { cc->AddFunctionDeclArg(
 												lx->GetString((yystack_[3].value.num)), (yystack_[0].value.np)); }
 #line 824 "tjs.tab.cpp"
     break;
 
   case 80: // func_decl_arg_collapse: "*"
-#line 400 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 400 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { cc->AddFunctionDeclArgCollapse(
 												NULL); }
 #line 831 "tjs.tab.cpp"
     break;
 
   case 81: // func_decl_arg_collapse: T_SYMBOL variable_type "*"
-#line 402 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 402 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                         { cc->AddFunctionDeclArgCollapse(
 												lx->GetString((yystack_[2].value.num))); }
 #line 838 "tjs.tab.cpp"
     break;
 
   case 82: // $@13: %empty
-#line 414 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 414 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { ptr->PushContextStack(
 												lx->GetString((yystack_[1].value.num)),
 												ctProperty); }
@@ -846,13 +846,13 @@ namespace TJS {
     break;
 
   case 83: // property_def: "property" T_SYMBOL "{" $@13 property_handler_def_list "}"
-#line 418 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 418 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { ptr->PopContextStack(); }
 #line 852 "tjs.tab.cpp"
     break;
 
   case 88: // $@14: %empty
-#line 429 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 429 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                         { ptr->PushContextStack(
 												TJS_W("(setter)"),
 												ctPropertySetter);
@@ -863,14 +863,14 @@ namespace TJS {
     break;
 
   case 89: // property_handler_setter: "setter" "(" T_SYMBOL variable_type ")" $@14 block
-#line 435 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 435 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { cc->ExitBlock();
 											  ptr->PopContextStack(); }
 #line 870 "tjs.tab.cpp"
     break;
 
   case 90: // $@15: %empty
-#line 440 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 440 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                         { ptr->PushContextStack(
 												TJS_W("(getter)"),
 												ctPropertyGetter);
@@ -879,14 +879,14 @@ namespace TJS {
     break;
 
   case 91: // property_handler_getter: property_getter_handler_head $@15 block
-#line 444 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 444 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { cc->ExitBlock();
 											  ptr->PopContextStack(); }
 #line 886 "tjs.tab.cpp"
     break;
 
   case 94: // $@16: %empty
-#line 456 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 456 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { ptr->PushContextStack(
 												lx->GetString((yystack_[0].value.num)),
 												ctClass); }
@@ -894,650 +894,650 @@ namespace TJS {
     break;
 
   case 95: // class_def: "class" T_SYMBOL $@16 class_extender block
-#line 460 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 460 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { ptr->PopContextStack(); }
 #line 900 "tjs.tab.cpp"
     break;
 
   case 97: // class_extender: "extends" expr_no_comma
-#line 465 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 465 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { cc->CreateExtendsExprCode((yystack_[0].value.np), true); }
 #line 906 "tjs.tab.cpp"
     break;
 
   case 98: // $@17: %empty
-#line 466 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 466 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                         { cc->CreateExtendsExprCode((yystack_[1].value.np), false); }
 #line 912 "tjs.tab.cpp"
     break;
 
   case 102: // extends_name: expr_no_comma
-#line 476 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 476 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { cc->CreateExtendsExprCode((yystack_[0].value.np), false); }
 #line 918 "tjs.tab.cpp"
     break;
 
   case 103: // return: "return" ";"
-#line 481 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 481 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { cc->ReturnFromFunc(NULL); }
 #line 924 "tjs.tab.cpp"
     break;
 
   case 104: // return: "return" expr ";"
-#line 482 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 482 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { cc->ReturnFromFunc((yystack_[1].value.np)); }
 #line 930 "tjs.tab.cpp"
     break;
 
   case 105: // $@18: %empty
-#line 489 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 489 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { cc->EnterSwitchCode((yystack_[1].value.np)); }
 #line 936 "tjs.tab.cpp"
     break;
 
   case 106: // switch: "switch" "(" expr ")" $@18 block
-#line 490 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 490 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { cc->ExitSwitchCode(); }
 #line 942 "tjs.tab.cpp"
     break;
 
   case 107: // $@19: %empty
-#line 496 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 496 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { cc->EnterWithCode((yystack_[1].value.np)); }
 #line 948 "tjs.tab.cpp"
     break;
 
   case 108: // with: "with" "(" expr ")" $@19 block_or_statement
-#line 497 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 497 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { cc->ExitWithCode(); }
 #line 954 "tjs.tab.cpp"
     break;
 
   case 109: // case: "case" expr ":"
-#line 502 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 502 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { cc->ProcessCaseCode((yystack_[1].value.np)); }
 #line 960 "tjs.tab.cpp"
     break;
 
   case 110: // case: "default" ":"
-#line 503 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 503 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { cc->ProcessCaseCode(NULL); }
 #line 966 "tjs.tab.cpp"
     break;
 
   case 111: // $@20: %empty
-#line 508 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 508 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { cc->EnterTryCode(); }
 #line 972 "tjs.tab.cpp"
     break;
 
   case 112: // try: "try" $@20 block_or_statement catch block_or_statement
-#line 511 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 511 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { cc->ExitTryCode(); }
 #line 978 "tjs.tab.cpp"
     break;
 
   case 113: // catch: "catch"
-#line 515 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 515 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { cc->EnterCatchCode(NULL); }
 #line 984 "tjs.tab.cpp"
     break;
 
   case 114: // catch: "catch" "(" ")"
-#line 516 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 516 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { cc->EnterCatchCode(NULL); }
 #line 990 "tjs.tab.cpp"
     break;
 
   case 115: // catch: "catch" "(" T_SYMBOL ")"
-#line 517 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 517 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { cc->EnterCatchCode(
 												lx->GetString((yystack_[1].value.num))); }
 #line 997 "tjs.tab.cpp"
     break;
 
   case 116: // throw: "throw" expr ";"
-#line 523 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 523 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { cc->ProcessThrowCode((yystack_[1].value.np)); }
 #line 1003 "tjs.tab.cpp"
     break;
 
   case 117: // expr_no_comma: assign_expr
-#line 528 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 528 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1009 "tjs.tab.cpp"
     break;
 
   case 118: // expr: comma_expr
-#line 532 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 532 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1015 "tjs.tab.cpp"
     break;
 
   case 119: // expr: comma_expr "if" expr
-#line 533 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 533 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { (yylhs.value.np) = cc->MakeNP2(token::T_IF, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1021 "tjs.tab.cpp"
     break;
 
   case 120: // comma_expr: assign_expr
-#line 538 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 538 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1027 "tjs.tab.cpp"
     break;
 
   case 121: // comma_expr: comma_expr "," assign_expr
-#line 539 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 539 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_COMMA, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1033 "tjs.tab.cpp"
     break;
 
   case 122: // assign_expr: cond_expr
-#line 544 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 544 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                         { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1039 "tjs.tab.cpp"
     break;
 
   case 123: // assign_expr: cond_expr "<->" assign_expr
-#line 545 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 545 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_SWAP, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1045 "tjs.tab.cpp"
     break;
 
   case 124: // assign_expr: cond_expr "=" assign_expr
-#line 546 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 546 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { (yylhs.value.np) = cc->MakeNP2(token::T_EQUAL, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1051 "tjs.tab.cpp"
     break;
 
   case 125: // assign_expr: cond_expr "&=" assign_expr
-#line 547 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 547 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_AMPERSANDEQUAL, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1057 "tjs.tab.cpp"
     break;
 
   case 126: // assign_expr: cond_expr "|=" assign_expr
-#line 548 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 548 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_VERTLINEEQUAL, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1063 "tjs.tab.cpp"
     break;
 
   case 127: // assign_expr: cond_expr "^=" assign_expr
-#line 549 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 549 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_CHEVRONEQUAL, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1069 "tjs.tab.cpp"
     break;
 
   case 128: // assign_expr: cond_expr "-=" assign_expr
-#line 550 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 550 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_MINUSEQUAL, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1075 "tjs.tab.cpp"
     break;
 
   case 129: // assign_expr: cond_expr "+=" assign_expr
-#line 551 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 551 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_PLUSEQUAL, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1081 "tjs.tab.cpp"
     break;
 
   case 130: // assign_expr: cond_expr "%=" assign_expr
-#line 552 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 552 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_PERCENTEQUAL, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1087 "tjs.tab.cpp"
     break;
 
   case 131: // assign_expr: cond_expr "/=" assign_expr
-#line 553 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 553 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_SLASHEQUAL, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1093 "tjs.tab.cpp"
     break;
 
   case 132: // assign_expr: cond_expr "\\=" assign_expr
-#line 554 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 554 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_BACKSLASHEQUAL, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1099 "tjs.tab.cpp"
     break;
 
   case 133: // assign_expr: cond_expr "*=" assign_expr
-#line 555 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 555 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_ASTERISKEQUAL, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1105 "tjs.tab.cpp"
     break;
 
   case 134: // assign_expr: cond_expr "||=" assign_expr
-#line 556 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 556 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_LOGICALOREQUAL, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1111 "tjs.tab.cpp"
     break;
 
   case 135: // assign_expr: cond_expr "&&=" assign_expr
-#line 557 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 557 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_LOGICALANDEQUAL, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1117 "tjs.tab.cpp"
     break;
 
   case 136: // assign_expr: cond_expr ">>=" assign_expr
-#line 558 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 558 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_RARITHSHIFTEQUAL, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1123 "tjs.tab.cpp"
     break;
 
   case 137: // assign_expr: cond_expr "<<=" assign_expr
-#line 559 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 559 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_LARITHSHIFTEQUAL, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1129 "tjs.tab.cpp"
     break;
 
   case 138: // assign_expr: cond_expr ">>>=" assign_expr
-#line 560 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 560 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_RBITSHIFTEQUAL, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1135 "tjs.tab.cpp"
     break;
 
   case 139: // cond_expr: logical_or_expr
-#line 565 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 565 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1141 "tjs.tab.cpp"
     break;
 
   case 140: // cond_expr: logical_or_expr "?" cond_expr ":" cond_expr
-#line 568 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 568 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                         { (yylhs.value.np) = cc->MakeNP3(token::T_QUESTION, (yystack_[4].value.np), (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1147 "tjs.tab.cpp"
     break;
 
   case 141: // logical_or_expr: logical_and_expr
-#line 574 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 574 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1153 "tjs.tab.cpp"
     break;
 
   case 142: // logical_or_expr: logical_or_expr "||" logical_and_expr
-#line 575 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 575 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                         { (yylhs.value.np) = cc->MakeNP2(token::T_LOGICALOR, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1159 "tjs.tab.cpp"
     break;
 
   case 143: // logical_and_expr: inclusive_or_expr
-#line 579 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 579 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1165 "tjs.tab.cpp"
     break;
 
   case 144: // logical_and_expr: logical_and_expr "&&" inclusive_or_expr
-#line 581 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 581 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_LOGICALAND, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1171 "tjs.tab.cpp"
     break;
 
   case 145: // inclusive_or_expr: exclusive_or_expr
-#line 585 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 585 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1177 "tjs.tab.cpp"
     break;
 
   case 146: // inclusive_or_expr: inclusive_or_expr "|" exclusive_or_expr
-#line 586 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 586 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                         { (yylhs.value.np) = cc->MakeNP2(token::T_VERTLINE, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1183 "tjs.tab.cpp"
     break;
 
   case 147: // exclusive_or_expr: and_expr
-#line 590 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 590 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                         { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1189 "tjs.tab.cpp"
     break;
 
   case 148: // exclusive_or_expr: exclusive_or_expr "^" and_expr
-#line 591 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 591 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_CHEVRON, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1195 "tjs.tab.cpp"
     break;
 
   case 149: // and_expr: identical_expr
-#line 595 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 595 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1201 "tjs.tab.cpp"
     break;
 
   case 150: // and_expr: and_expr "&" identical_expr
-#line 596 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 596 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_AMPERSAND, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1207 "tjs.tab.cpp"
     break;
 
   case 151: // identical_expr: compare_expr
-#line 600 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 600 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1213 "tjs.tab.cpp"
     break;
 
   case 152: // identical_expr: identical_expr "!=" compare_expr
-#line 601 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 601 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_NOTEQUAL, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1219 "tjs.tab.cpp"
     break;
 
   case 153: // identical_expr: identical_expr "==" compare_expr
-#line 602 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 602 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_EQUALEQUAL, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1225 "tjs.tab.cpp"
     break;
 
   case 154: // identical_expr: identical_expr "!==" compare_expr
-#line 603 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 603 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_DISCNOTEQUAL, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1231 "tjs.tab.cpp"
     break;
 
   case 155: // identical_expr: identical_expr "===" compare_expr
-#line 604 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 604 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_DISCEQUAL, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1237 "tjs.tab.cpp"
     break;
 
   case 156: // compare_expr: shift_expr
-#line 608 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 608 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1243 "tjs.tab.cpp"
     break;
 
   case 157: // compare_expr: compare_expr "<" shift_expr
-#line 609 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 609 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_LT, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1249 "tjs.tab.cpp"
     break;
 
   case 158: // compare_expr: compare_expr ">" shift_expr
-#line 610 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 610 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_GT, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1255 "tjs.tab.cpp"
     break;
 
   case 159: // compare_expr: compare_expr "<=" shift_expr
-#line 611 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 611 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_LTOREQUAL, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1261 "tjs.tab.cpp"
     break;
 
   case 160: // compare_expr: compare_expr ">=" shift_expr
-#line 612 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 612 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_GTOREQUAL, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1267 "tjs.tab.cpp"
     break;
 
   case 161: // shift_expr: add_sub_expr
-#line 616 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 616 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1273 "tjs.tab.cpp"
     break;
 
   case 162: // shift_expr: shift_expr ">>" add_sub_expr
-#line 617 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 617 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_RARITHSHIFT, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1279 "tjs.tab.cpp"
     break;
 
   case 163: // shift_expr: shift_expr "<<" add_sub_expr
-#line 618 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 618 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_LARITHSHIFT, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1285 "tjs.tab.cpp"
     break;
 
   case 164: // shift_expr: shift_expr ">>>" add_sub_expr
-#line 619 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 619 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_RBITSHIFT, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1291 "tjs.tab.cpp"
     break;
 
   case 165: // add_sub_expr: mul_div_expr
-#line 624 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 624 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1297 "tjs.tab.cpp"
     break;
 
   case 166: // add_sub_expr: add_sub_expr "+" mul_div_expr
-#line 625 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 625 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_PLUS, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1303 "tjs.tab.cpp"
     break;
 
   case 167: // add_sub_expr: add_sub_expr "-" mul_div_expr
-#line 626 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 626 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_MINUS, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1309 "tjs.tab.cpp"
     break;
 
   case 168: // mul_div_expr: unary_expr
-#line 630 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 630 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1315 "tjs.tab.cpp"
     break;
 
   case 169: // mul_div_expr: mul_div_expr "%" unary_expr
-#line 631 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 631 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_PERCENT, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1321 "tjs.tab.cpp"
     break;
 
   case 170: // mul_div_expr: mul_div_expr "/" unary_expr
-#line 632 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 632 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_SLASH, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1327 "tjs.tab.cpp"
     break;
 
   case 171: // mul_div_expr: mul_div_expr "\\" unary_expr
-#line 633 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 633 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_BACKSLASH, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1333 "tjs.tab.cpp"
     break;
 
   case 172: // mul_div_expr: mul_div_expr_and_asterisk unary_expr
-#line 634 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 634 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                         { (yylhs.value.np) = cc->MakeNP2(token::T_ASTERISK, (yystack_[1].value.np), (yystack_[0].value.np)); }
 #line 1339 "tjs.tab.cpp"
     break;
 
   case 173: // mul_div_expr_and_asterisk: mul_div_expr "*"
-#line 638 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 638 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = (yystack_[1].value.np); }
 #line 1345 "tjs.tab.cpp"
     break;
 
   case 174: // unary_expr: incontextof_expr
-#line 642 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 642 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1351 "tjs.tab.cpp"
     break;
 
   case 175: // unary_expr: "!" unary_expr
-#line 643 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 643 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = cc->MakeNP1(token::T_EXCRAMATION, (yystack_[0].value.np)); }
 #line 1357 "tjs.tab.cpp"
     break;
 
   case 176: // unary_expr: "~" unary_expr
-#line 644 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 644 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = cc->MakeNP1(token::T_TILDE, (yystack_[0].value.np)); }
 #line 1363 "tjs.tab.cpp"
     break;
 
   case 177: // unary_expr: "--" unary_expr
-#line 645 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 645 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = cc->MakeNP1(token::T_DECREMENT, (yystack_[0].value.np)); }
 #line 1369 "tjs.tab.cpp"
     break;
 
   case 178: // unary_expr: "++" unary_expr
-#line 646 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 646 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = cc->MakeNP1(token::T_INCREMENT, (yystack_[0].value.np)); }
 #line 1375 "tjs.tab.cpp"
     break;
 
   case 179: // unary_expr: "new" func_call_expr
-#line 647 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 647 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { (yylhs.value.np) = (yystack_[0].value.np); (yylhs.value.np)->SetOpecode(token::T_NEW); }
 #line 1381 "tjs.tab.cpp"
     break;
 
   case 180: // unary_expr: "invalidate" unary_expr
-#line 648 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 648 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { (yylhs.value.np) = cc->MakeNP1(token::T_INVALIDATE, (yystack_[0].value.np)); }
 #line 1387 "tjs.tab.cpp"
     break;
 
   case 181: // unary_expr: "isvalid" unary_expr
-#line 649 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 649 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { (yylhs.value.np) = cc->MakeNP1(token::T_ISVALID, (yystack_[0].value.np)); }
 #line 1393 "tjs.tab.cpp"
     break;
 
   case 182: // unary_expr: incontextof_expr "isvalid"
-#line 650 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 650 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP1(token::T_ISVALID, (yystack_[1].value.np)); }
 #line 1399 "tjs.tab.cpp"
     break;
 
   case 183: // unary_expr: "delete" unary_expr
-#line 651 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 651 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { (yylhs.value.np) = cc->MakeNP1(token::T_DELETE, (yystack_[0].value.np)); }
 #line 1405 "tjs.tab.cpp"
     break;
 
   case 184: // unary_expr: "typeof" unary_expr
-#line 652 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 652 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { (yylhs.value.np) = cc->MakeNP1(token::T_TYPEOF, (yystack_[0].value.np)); }
 #line 1411 "tjs.tab.cpp"
     break;
 
   case 185: // unary_expr: "#" unary_expr
-#line 653 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 653 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = cc->MakeNP1(token::T_SHARP, (yystack_[0].value.np)); }
 #line 1417 "tjs.tab.cpp"
     break;
 
   case 186: // unary_expr: "$" unary_expr
-#line 654 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 654 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = cc->MakeNP1(token::T_DOLLAR, (yystack_[0].value.np)); }
 #line 1423 "tjs.tab.cpp"
     break;
 
   case 187: // unary_expr: "+" unary_expr
-#line 655 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 655 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = cc->MakeNP1(token::T_UPLUS, (yystack_[0].value.np)); }
 #line 1429 "tjs.tab.cpp"
     break;
 
   case 188: // unary_expr: "-" unary_expr
-#line 656 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 656 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = cc->MakeNP1(token::T_UMINUS, (yystack_[0].value.np)); }
 #line 1435 "tjs.tab.cpp"
     break;
 
   case 189: // unary_expr: "&" unary_expr
-#line 657 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 657 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = cc->MakeNP1(token::T_IGNOREPROP, (yystack_[0].value.np)); }
 #line 1441 "tjs.tab.cpp"
     break;
 
   case 190: // unary_expr: "*" unary_expr
-#line 658 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 658 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = cc->MakeNP1(token::T_PROPACCESS, (yystack_[0].value.np)); }
 #line 1447 "tjs.tab.cpp"
     break;
 
   case 191: // unary_expr: incontextof_expr "instanceof" unary_expr
-#line 659 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 659 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                         { (yylhs.value.np) = cc->MakeNP2(token::T_INSTANCEOF, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1453 "tjs.tab.cpp"
     break;
 
   case 192: // unary_expr: incontextof_expr "in" unary_expr
-#line 660 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 660 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_IN, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1459 "tjs.tab.cpp"
     break;
 
   case 193: // unary_expr: "(" "int" ")" unary_expr
-#line 661 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 661 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { (yylhs.value.np) = cc->MakeNP1(token::T_INT, (yystack_[0].value.np)); }
 #line 1465 "tjs.tab.cpp"
     break;
 
   case 194: // unary_expr: "int" unary_expr
-#line 662 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 662 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = cc->MakeNP1(token::T_INT, (yystack_[0].value.np)); }
 #line 1471 "tjs.tab.cpp"
     break;
 
   case 195: // unary_expr: "(" "real" ")" unary_expr
-#line 663 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 663 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { (yylhs.value.np) = cc->MakeNP1(token::T_REAL, (yystack_[0].value.np)); }
 #line 1477 "tjs.tab.cpp"
     break;
 
   case 196: // unary_expr: "real" unary_expr
-#line 664 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 664 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = cc->MakeNP1(token::T_REAL, (yystack_[0].value.np)); }
 #line 1483 "tjs.tab.cpp"
     break;
 
   case 197: // unary_expr: "(" "string" ")" unary_expr
-#line 665 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 665 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP1(token::T_STRING, (yystack_[0].value.np)); }
 #line 1489 "tjs.tab.cpp"
     break;
 
   case 198: // unary_expr: "string" unary_expr
-#line 666 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 666 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { (yylhs.value.np) = cc->MakeNP1(token::T_STRING, (yystack_[0].value.np)); }
 #line 1495 "tjs.tab.cpp"
     break;
 
   case 199: // incontextof_expr: priority_expr
-#line 670 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 670 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1501 "tjs.tab.cpp"
     break;
 
   case 200: // incontextof_expr: priority_expr "incontextof" incontextof_expr
-#line 672 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 672 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_INCONTEXTOF, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1507 "tjs.tab.cpp"
     break;
 
   case 201: // priority_expr: factor_expr
-#line 676 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 676 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1513 "tjs.tab.cpp"
     break;
 
   case 202: // priority_expr: "(" expr ")"
-#line 677 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 677 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = (yystack_[1].value.np); }
 #line 1519 "tjs.tab.cpp"
     break;
 
   case 203: // priority_expr: priority_expr "[" expr "]"
-#line 678 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 678 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_LBRACKET, (yystack_[3].value.np), (yystack_[1].value.np)); }
 #line 1525 "tjs.tab.cpp"
     break;
 
   case 204: // priority_expr: func_call_expr
-#line 679 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 679 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1531 "tjs.tab.cpp"
     break;
 
   case 205: // $@21: %empty
-#line 680 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 680 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { lx->SetNextIsBareWord(); }
 #line 1537 "tjs.tab.cpp"
     break;
 
   case 206: // priority_expr: priority_expr "." $@21 T_SYMBOL
-#line 681 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 681 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                         { tTJSExprNode * node = cc->MakeNP0(token::T_CONSTVAL);
 												  node->SetValue(lx->GetValue((yystack_[0].value.num)));
 												  (yylhs.value.np) = cc->MakeNP2(token::T_DOT, (yystack_[3].value.np), node); }
@@ -1545,31 +1545,31 @@ namespace TJS {
     break;
 
   case 207: // priority_expr: priority_expr "++"
-#line 684 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 684 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { (yylhs.value.np) = cc->MakeNP1(token::T_POSTINCREMENT, (yystack_[1].value.np)); }
 #line 1551 "tjs.tab.cpp"
     break;
 
   case 208: // priority_expr: priority_expr "--"
-#line 685 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 685 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { (yylhs.value.np) = cc->MakeNP1(token::T_POSTDECREMENT, (yystack_[1].value.np)); }
 #line 1557 "tjs.tab.cpp"
     break;
 
   case 209: // priority_expr: priority_expr "!"
-#line 686 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 686 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = cc->MakeNP1(token::T_EVAL, (yystack_[1].value.np)); }
 #line 1563 "tjs.tab.cpp"
     break;
 
   case 210: // $@22: %empty
-#line 687 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 687 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                         { lx->SetNextIsBareWord(); }
 #line 1569 "tjs.tab.cpp"
     break;
 
   case 211: // priority_expr: "." $@22 T_SYMBOL
-#line 688 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 688 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                     { tTJSExprNode * node = cc->MakeNP0(token::T_CONSTVAL);
 												  node->SetValue(lx->GetValue((yystack_[0].value.num)));
 												  (yylhs.value.np) = cc->MakeNP1(token::T_WITHDOT, node); }
@@ -1577,14 +1577,14 @@ namespace TJS {
     break;
 
   case 212: // factor_expr: T_CONSTVAL
-#line 695 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 695 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = cc->MakeNP0(token::T_CONSTVAL);
 												  (yylhs.value.np)->SetValue(lx->GetValue((yystack_[0].value.num))); }
 #line 1584 "tjs.tab.cpp"
     break;
 
   case 213: // factor_expr: T_SYMBOL
-#line 697 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 697 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                         { (yylhs.value.np) = cc->MakeNP0(token::T_SYMBOL);
 												  (yylhs.value.np)->SetValue(tTJSVariant(
 													lx->GetString((yystack_[0].value.num)))); }
@@ -1592,135 +1592,135 @@ namespace TJS {
     break;
 
   case 214: // factor_expr: "this"
-#line 700 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 700 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                         { (yylhs.value.np) = cc->MakeNP0(token::T_THIS); }
 #line 1598 "tjs.tab.cpp"
     break;
 
   case 215: // factor_expr: "super"
-#line 701 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 701 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                         { (yylhs.value.np) = cc->MakeNP0(token::T_SUPER); }
 #line 1604 "tjs.tab.cpp"
     break;
 
   case 216: // factor_expr: func_expr_def
-#line 702 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 702 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1610 "tjs.tab.cpp"
     break;
 
   case 217: // factor_expr: "global"
-#line 703 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 703 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                         { (yylhs.value.np) = cc->MakeNP0(token::T_GLOBAL); }
 #line 1616 "tjs.tab.cpp"
     break;
 
   case 218: // factor_expr: "void"
-#line 704 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 704 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                         { (yylhs.value.np) = cc->MakeNP0(token::T_VOID); }
 #line 1622 "tjs.tab.cpp"
     break;
 
   case 219: // factor_expr: inline_array
-#line 705 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 705 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1628 "tjs.tab.cpp"
     break;
 
   case 220: // factor_expr: inline_dic
-#line 706 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 706 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1634 "tjs.tab.cpp"
     break;
 
   case 221: // factor_expr: const_inline_array
-#line 707 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 707 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1640 "tjs.tab.cpp"
     break;
 
   case 222: // factor_expr: const_inline_dic
-#line 708 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 708 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                 { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1646 "tjs.tab.cpp"
     break;
 
   case 223: // $@23: %empty
-#line 709 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 709 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                         { lx->SetStartOfRegExp(); }
 #line 1652 "tjs.tab.cpp"
     break;
 
   case 224: // factor_expr: "/=" $@23 T_REGEXP
-#line 710 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 710 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                         { (yylhs.value.np) = cc->MakeNP0(token::T_REGEXP);
 												  (yylhs.value.np)->SetValue(lx->GetValue((yystack_[0].value.num))); }
 #line 1659 "tjs.tab.cpp"
     break;
 
   case 225: // $@24: %empty
-#line 712 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 712 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                         { lx->SetStartOfRegExp(); }
 #line 1665 "tjs.tab.cpp"
     break;
 
   case 226: // factor_expr: "/" $@24 T_REGEXP
-#line 713 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 713 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                                         { (yylhs.value.np) = cc->MakeNP0(token::T_REGEXP);
 												  (yylhs.value.np)->SetValue(lx->GetValue((yystack_[0].value.num))); }
 #line 1672 "tjs.tab.cpp"
     break;
 
   case 227: // func_call_expr: priority_expr "(" call_arg_list ")"
-#line 720 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 720 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                         { (yylhs.value.np) = cc->MakeNP2(token::T_LPARENTHESIS, (yystack_[3].value.np), (yystack_[1].value.np)); }
 #line 1678 "tjs.tab.cpp"
     break;
 
   case 228: // call_arg_list: "..."
-#line 725 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 725 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { (yylhs.value.np) = cc->MakeNP0(token::T_OMIT); }
 #line 1684 "tjs.tab.cpp"
     break;
 
   case 229: // call_arg_list: call_arg
-#line 726 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 726 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { (yylhs.value.np) = cc->MakeNP1(token::T_ARG, (yystack_[0].value.np)); }
 #line 1690 "tjs.tab.cpp"
     break;
 
   case 230: // call_arg_list: call_arg_list "," call_arg
-#line 727 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 727 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_ARG, (yystack_[0].value.np), (yystack_[2].value.np)); }
 #line 1696 "tjs.tab.cpp"
     break;
 
   case 231: // call_arg: %empty
-#line 731 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 731 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = NULL; }
 #line 1702 "tjs.tab.cpp"
     break;
 
   case 232: // call_arg: "*"
-#line 732 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 732 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { (yylhs.value.np) = cc->MakeNP1(token::T_EXPANDARG, NULL); }
 #line 1708 "tjs.tab.cpp"
     break;
 
   case 233: // call_arg: mul_div_expr_and_asterisk
-#line 733 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 733 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                         { (yylhs.value.np) = cc->MakeNP1(token::T_EXPANDARG, (yystack_[0].value.np)); }
 #line 1714 "tjs.tab.cpp"
     break;
 
   case 234: // call_arg: expr_no_comma
-#line 734 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 734 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = (yystack_[0].value.np); }
 #line 1720 "tjs.tab.cpp"
     break;
 
   case 235: // $@25: %empty
-#line 740 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 740 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { tTJSExprNode *node =
 										  cc->MakeNP0(token::T_INLINEARRAY);
 										  cc->PushCurrentNode(node); }
@@ -1728,37 +1728,37 @@ namespace TJS {
     break;
 
   case 236: // inline_array: "[" $@25 array_elm_list "]"
-#line 744 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 744 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { (yylhs.value.np) = cn; cc->PopCurrentNode(); }
 #line 1734 "tjs.tab.cpp"
     break;
 
   case 237: // array_elm_list: array_elm
-#line 749 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 749 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { cn->Add((yystack_[0].value.np)); }
 #line 1740 "tjs.tab.cpp"
     break;
 
   case 238: // array_elm_list: array_elm_list "," array_elm
-#line 750 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 750 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                 { cn->Add((yystack_[0].value.np)); }
 #line 1746 "tjs.tab.cpp"
     break;
 
   case 239: // array_elm: %empty
-#line 755 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 755 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP1(token::T_ARRAYARG, NULL); }
 #line 1752 "tjs.tab.cpp"
     break;
 
   case 240: // array_elm: expr_no_comma
-#line 756 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 756 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { (yylhs.value.np) = cc->MakeNP1(token::T_ARRAYARG, (yystack_[0].value.np)); }
 #line 1758 "tjs.tab.cpp"
     break;
 
   case 241: // $@26: %empty
-#line 761 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 761 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { tTJSExprNode *node =
 										  cc->MakeNP0(token::T_INLINEDIC);
 										  cc->PushCurrentNode(node); }
@@ -1766,31 +1766,31 @@ namespace TJS {
     break;
 
   case 242: // inline_dic: "%" "[" $@26 dic_elm_list dic_dummy_elm_opt "]"
-#line 766 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 766 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { (yylhs.value.np) = cn; cc->PopCurrentNode(); }
 #line 1772 "tjs.tab.cpp"
     break;
 
   case 244: // dic_elm_list: dic_elm
-#line 773 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 773 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { cn->Add((yystack_[0].value.np)); }
 #line 1778 "tjs.tab.cpp"
     break;
 
   case 245: // dic_elm_list: dic_elm_list "," dic_elm
-#line 774 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 774 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                         { cn->Add((yystack_[0].value.np)); }
 #line 1784 "tjs.tab.cpp"
     break;
 
   case 246: // dic_elm: expr_no_comma "," expr_no_comma
-#line 779 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 779 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                 { (yylhs.value.np) = cc->MakeNP2(token::T_DICELM, (yystack_[2].value.np), (yystack_[0].value.np)); }
 #line 1790 "tjs.tab.cpp"
     break;
 
   case 247: // dic_elm: T_SYMBOL ":" expr_no_comma
-#line 780 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 780 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                 { tTJSVariant val(lx->GetString((yystack_[2].value.num)));
 										  tTJSExprNode *node0 = cc->MakeNP0(token::T_CONSTVAL);
 										  node0->SetValue(val);
@@ -1799,7 +1799,7 @@ namespace TJS {
     break;
 
   case 250: // $@27: %empty
-#line 796 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 796 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                         { tTJSExprNode *node =
 										  cc->MakeNP0(token::T_CONSTVAL);
 										  iTJSDispatch2 * dsp = TJSCreateArrayObject();
@@ -1810,49 +1810,49 @@ namespace TJS {
     break;
 
   case 251: // const_inline_array: "(" "const" ")" "[" $@27 const_array_elm_list_opt "]"
-#line 803 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 803 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { (yylhs.value.np) = cn; cc->PopCurrentNode(); }
 #line 1816 "tjs.tab.cpp"
     break;
 
   case 256: // const_array_elm: "-" T_CONSTVAL
-#line 821 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 821 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { cn->AddArrayElement(- lx->GetValue((yystack_[0].value.num))); }
 #line 1822 "tjs.tab.cpp"
     break;
 
   case 257: // const_array_elm: "+" T_CONSTVAL
-#line 822 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 822 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { cn->AddArrayElement(+ lx->GetValue((yystack_[0].value.num))); }
 #line 1828 "tjs.tab.cpp"
     break;
 
   case 258: // const_array_elm: T_CONSTVAL
-#line 823 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 823 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { cn->AddArrayElement(lx->GetValue((yystack_[0].value.num))); }
 #line 1834 "tjs.tab.cpp"
     break;
 
   case 259: // const_array_elm: "void"
-#line 824 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 824 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { cn->AddArrayElement(tTJSVariant());  }
 #line 1840 "tjs.tab.cpp"
     break;
 
   case 260: // const_array_elm: const_inline_array
-#line 825 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 825 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                         { cn->AddArrayElement((yystack_[0].value.np)->GetValue()); }
 #line 1846 "tjs.tab.cpp"
     break;
 
   case 261: // const_array_elm: const_inline_dic
-#line 826 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 826 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                 { cn->AddArrayElement((yystack_[0].value.np)->GetValue()); }
 #line 1852 "tjs.tab.cpp"
     break;
 
   case 262: // $@28: %empty
-#line 831 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 831 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                         { tTJSExprNode *node =
 										  cc->MakeNP0(token::T_CONSTVAL);
 										  iTJSDispatch2 * dsp = TJSCreateDictionaryObject();
@@ -1863,43 +1863,43 @@ namespace TJS {
     break;
 
   case 263: // const_inline_dic: "(" "const" ")" "%" "[" $@28 const_dic_elm_list "]"
-#line 838 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 838 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                                         { (yylhs.value.np) = cn; cc->PopCurrentNode(); }
 #line 1869 "tjs.tab.cpp"
     break;
 
   case 267: // const_dic_elm: T_CONSTVAL "," "-" T_CONSTVAL
-#line 851 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 851 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                 { cn->AddDictionaryElement(lx->GetValue((yystack_[3].value.num)), - lx->GetValue((yystack_[0].value.num))); }
 #line 1875 "tjs.tab.cpp"
     break;
 
   case 268: // const_dic_elm: T_CONSTVAL "," "+" T_CONSTVAL
-#line 852 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 852 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                 { cn->AddDictionaryElement(lx->GetValue((yystack_[3].value.num)), + lx->GetValue((yystack_[0].value.num))); }
 #line 1881 "tjs.tab.cpp"
     break;
 
   case 269: // const_dic_elm: T_CONSTVAL "," T_CONSTVAL
-#line 853 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 853 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                         { cn->AddDictionaryElement(lx->GetValue((yystack_[2].value.num)), lx->GetValue((yystack_[0].value.num))); }
 #line 1887 "tjs.tab.cpp"
     break;
 
   case 270: // const_dic_elm: T_CONSTVAL "," "void"
-#line 854 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 854 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                         { cn->AddDictionaryElement(lx->GetValue((yystack_[2].value.num)), tTJSVariant()); }
 #line 1893 "tjs.tab.cpp"
     break;
 
   case 271: // const_dic_elm: T_CONSTVAL "," const_inline_array
-#line 855 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 855 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                 { cn->AddDictionaryElement(lx->GetValue((yystack_[2].value.num)), (yystack_[0].value.np)->GetValue()); }
 #line 1899 "tjs.tab.cpp"
     break;
 
   case 272: // const_dic_elm: T_CONSTVAL "," const_inline_dic
-#line 856 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 856 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
                                                 { cn->AddDictionaryElement(lx->GetValue((yystack_[2].value.num)), (yystack_[0].value.np)->GetValue()); }
 #line 1905 "tjs.tab.cpp"
     break;
@@ -2844,9 +2844,9 @@ namespace TJS {
       return symbol_kind::S_YYUNDEF;
   }
 
-#line 6 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 6 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
 } // TJS
 #line 2850 "tjs.tab.cpp"
 
-#line 861 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjs.y"
+#line 861 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjs.y"
 

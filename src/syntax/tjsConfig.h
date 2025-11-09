@@ -71,7 +71,7 @@ extern int TJS_wctomb(tjs_nchar *s, tjs_char wc);
 	#define TJS_vsnprintf		vswprintf
 	extern tjs_int TJS_sprintf(tjs_char *s, const tjs_char *format, ...);
 	#define TJS_timezone timezone
-	#define TJS_snprintf swprintf_s
+	#define TJS_snprintf swprintf
 #elif _WIN32
 	#define TJS_cdecl __cdecl
 #ifdef _MSC_VER

@@ -30,19 +30,19 @@ namespace TJS {
 
         // log stream holder
         class tTVPLogStreamHolder {
-            FILE* Stream;
+            // FILE* Stream;
             bool Alive;
             bool OpenFailed;
 
         public:
             tTVPLogStreamHolder() {
-                Stream = nullptr;
+                // Stream = nullptr;
                 Alive = true;
                 OpenFailed = false;
             }
 
             ~tTVPLogStreamHolder() {
-                if (Stream) fclose(Stream);
+                // if (Stream) fclose(Stream);
                 Alive = false;
             }
 
@@ -50,8 +50,8 @@ namespace TJS {
             void Log(const ttstr& text); // log given text
 
             void Reopen() {
-                if (Stream) fclose(Stream);
-                Stream = nullptr;
+                // if (Stream) fclose(Stream);
+                // Stream = nullptr;
                 Alive = false;
                 OpenFailed = false;
             } // reopen log stream

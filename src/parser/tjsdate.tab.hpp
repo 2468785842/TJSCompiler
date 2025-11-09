@@ -45,7 +45,7 @@
 #ifndef YY_YY_TJSDATE_TAB_HPP_INCLUDED
 # define YY_YY_TJSDATE_TAB_HPP_INCLUDED
 // "%code requires" blocks.
-#line 12 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 12 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
 
 #include "tjsTypes.h"
 
@@ -187,7 +187,7 @@ namespace TJSDate {
 # define YYDEBUG 0
 #endif
 
-#line 5 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 5 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
 namespace TJSDate {
 #line 193 "tjsdate.tab.hpp"
 
@@ -207,7 +207,7 @@ namespace TJSDate {
     /// Symbol semantic values.
     union value_type
     {
-#line 23 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 23 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
 
 	tjs_int32 val;
 
@@ -794,7 +794,7 @@ namespace TJSDate {
   };
 
 
-#line 5 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjsdate.y"
+#line 5 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjsdate.y"
 } // TJSDate
 #line 800 "tjsdate.tab.hpp"
 

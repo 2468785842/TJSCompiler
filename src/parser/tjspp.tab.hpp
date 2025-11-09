@@ -45,7 +45,7 @@
 #ifndef YY_YY_TJSPP_TAB_HPP_INCLUDED
 # define YY_YY_TJSPP_TAB_HPP_INCLUDED
 // "%code requires" blocks.
-#line 22 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 22 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
 
 #include "tjsTypes.h"
 
@@ -187,7 +187,7 @@ namespace TJSPP {
 # define YYDEBUG 0
 #endif
 
-#line 6 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 6 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
 namespace TJSPP {
 #line 193 "tjspp.tab.hpp"
 
@@ -207,7 +207,7 @@ namespace TJSPP {
     /// Symbol semantic values.
     union value_type
     {
-#line 31 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 31 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
 
 	tjs_int32 val;
 	tjs_int nv;
@@ -812,7 +812,7 @@ namespace TJSPP {
   };
 
 
-#line 6 "D:/Users/Li_Dong/CLionProjects/TJSCompiler/src/syntax/bison/tjspp.y"
+#line 6 "/Users/lidong/Documents/TJSCompiler/src/syntax/bison/tjspp.y"
 } // TJSPP
 #line 818 "tjspp.tab.hpp"
 

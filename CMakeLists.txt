@@ -2,17 +2,6 @@ cmake_minimum_required(VERSION 3.25)
 
 project(TJSCompiler CXX)
 
-# "VCPKG_OVERLAY_TRIPLETS": "${sourceDir}/triplets",
-# "VCPKG_HOST_TRIPLET": "x64-windows-llvm",
-# "VCPKG_TARGET_TRIPLET": "x64-windows-llvm",
-# include MingGW header
-# Only WSL
-# if (CMAKE_CROSSCOMPILING
-# AND UNIX
-# AND NOT APPLE
-# AND DEFINED ENV{WSL_DISTRO_NAME})
-# include_directories(SYSTEM /usr/share/mingw-w64/include/)
-# endif ()
 set(CMAKE_CXX_STANDARD 20)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin/${CMAKE_SYSTEM_NAME})
@@ -61,10 +50,10 @@ endforeach()
 
 add_custom_target(GENERATE_CPP_FILES DEPENDS ${PARSE_TAB_CPP_FILES})
 
-find_program(Python_EXECUTABLE python NO_CMAKE_FIND_ROOT_PATH)
+find_package(Python3 REQUIRED)
 execute_process(
     TIMEOUT 3000
-    COMMAND ${Python_EXECUTABLE}
+    COMMAND ${Python3_EXECUTABLE}
     create_world_map.py
     ${CMAKE_SOURCE_DIR}/src/syntax/lexer/tjsDateWordMap.cpp
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/py_script
@@ -147,11 +136,3 @@ add_compile_definitions(ONIG_EXTERN=extern)
 # ------------------------------ import library ------------------------------- #
 target_link_libraries(${PROJECT_NAME} PRIVATE onig)
 add_dependencies(${PROJECT_NAME} GENERATE_CPP_FILES)
-cmake_policy(SET CMP0077 NEW)
-
-# vscode clangd
-execute_process(
-    COMMAND ${CMAKE_COMMAND} -E copy_if_different
-    "${CMAKE_BINARY_DIR}/compile_commands.json"
-    "${CMAKE_SOURCE_DIR}/build/compile_commands.json"
-)

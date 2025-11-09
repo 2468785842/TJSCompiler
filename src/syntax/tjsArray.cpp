@@ -896,7 +896,7 @@ namespace TJS {
                         if (i == ni->Items.end())
                             *result = -1;
                         else
-                            *result = i - ni->Items.begin();
+                            *result = static_cast<tTVInteger>(i - ni->Items.begin());
                     }
 
                     return TJS_S_OK;
