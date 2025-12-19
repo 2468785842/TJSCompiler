@@ -2031,17 +2031,17 @@ tjs_uint time_PutCode = 0;
 	tTJSTimeProfiler prof(time_this_proxy);
 #endif
                 tTJSExprNode nodep;
-                nodep.SetOpecode(T_DOT);
+                nodep.SetOpcode(T_DOT);
                 nodep.SetPosition(node_pos);
                 tTJSExprNode* node1 = new tTJSExprNode;
                 NodeToDeleteVector.push_back(node1);
                 nodep.Add(node1);
-                node1->SetOpecode(AsGlobalContextMode ? T_GLOBAL : T_THIS_PROXY);
+                node1->SetOpcode(AsGlobalContextMode ? T_GLOBAL : T_THIS_PROXY);
                 node1->SetPosition(node_pos);
                 tTJSExprNode* node2 = new tTJSExprNode;
                 NodeToDeleteVector.push_back(node2);
                 nodep.Add(node2);
-                node2->SetOpecode(T_SYMBOL);
+                node2->SetOpcode(T_SYMBOL);
                 node2->SetPosition(node_pos);
                 node2->SetValue(node->GetValue());
                 return _GenNodeCode(frame, &nodep, restype, reqresaddr, param);
@@ -2183,12 +2183,12 @@ tjs_uint time_PutCode = 0;
         {
             // dot operator omitting object name
             tTJSExprNode nodep;
-            nodep.SetOpecode(T_DOT);
+            nodep.SetOpcode(T_DOT);
             nodep.SetPosition(node_pos);
             tTJSExprNode* node1 = new tTJSExprNode;
             NodeToDeleteVector.push_back(node1);
             nodep.Add(node1);
-            node1->SetOpecode(T_WITHDOT_PROXY);
+            node1->SetOpcode(T_WITHDOT_PROXY);
             node1->SetPosition(node_pos);
             nodep.Add((*node)[0]);
             return _GenNodeCode(frame, &nodep, restype, reqresaddr, param);
@@ -3437,7 +3437,7 @@ tjs_uint time_GenNodeCode = 0;
     tTJSExprNode* tTJSInterCodeContext::MakeConstValNode(const tTJSVariant& val) {
         tTJSExprNode* n = new tTJSExprNode;
         NodeToDeleteVector.push_back(n);
-        n->SetOpecode(T_CONSTVAL);
+        n->SetOpcode(T_CONSTVAL);
         n->SetValue(val);
         n->SetPosition(LEX_POS);
         return n;
@@ -3454,7 +3454,7 @@ tjs_uint time_make_np = 0;
 #endif
         tTJSExprNode* n = new tTJSExprNode;
         NodeToDeleteVector.push_back(n);
-        n->SetOpecode(opecode);
+        n->SetOpcode(opecode);
         n->SetPosition(LEX_POS);
         return n;
     }
@@ -3536,7 +3536,7 @@ tjs_uint time_make_np = 0;
 
         tTJSExprNode* n = new tTJSExprNode;
         NodeToDeleteVector.push_back(n);
-        n->SetOpecode(opecode);
+        n->SetOpcode(opecode);
         n->SetPosition(LEX_POS);
         n->Add(node1);
         return n;
@@ -3607,7 +3607,7 @@ tjs_uint time_make_np = 0;
 
         tTJSExprNode* n = new tTJSExprNode;
         NodeToDeleteVector.push_back(n);
-        n->SetOpecode(opecode);
+        n->SetOpcode(opecode);
         n->SetPosition(LEX_POS);
         n->Add(node1);
         n->Add(node2);
@@ -3622,7 +3622,7 @@ tjs_uint time_make_np = 0;
 #endif
         tTJSExprNode* n = new tTJSExprNode;
         NodeToDeleteVector.push_back(n);
-        n->SetOpecode(opecode);
+        n->SetOpcode(opecode);
         n->SetPosition(LEX_POS);
         n->Add(node1);
         n->Add(node2);

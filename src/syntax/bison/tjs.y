@@ -4,6 +4,7 @@
 %header "tjs.tab.hpp"
 %output "tjs.tab.cpp"
 %define api.namespace {TJS}
+%define parse.error verbose
 
 %code top
 {
@@ -38,7 +39,6 @@ namespace TJS {
     class tTJSExprNode;
 }
 }
-
 
 %token
 	T_COMMA					","
@@ -129,7 +129,7 @@ namespace TJS {
 	T_WHILE					"while"
 	T_DO					"do"
 	T_IF					"if"
-    
+
 	T_VAR					"var"
 	T_CONST					"const"
 	T_ENUM					"enum"
@@ -644,7 +644,7 @@ unary_expr
 	| "~" unary_expr							{ $$ = cc->MakeNP1(token::T_TILDE, $2); }
 	| "--" unary_expr							{ $$ = cc->MakeNP1(token::T_DECREMENT, $2); }
 	| "++" unary_expr							{ $$ = cc->MakeNP1(token::T_INCREMENT, $2); }
-	| "new" func_call_expr						{ $$ = $2; $$->SetOpecode(token::T_NEW); }
+	| "new" func_call_expr						{ $$ = $2; $$->SetOpcode(token::T_NEW); }
 	| "invalidate" unary_expr					{ $$ = cc->MakeNP1(token::T_INVALIDATE, $2); }
 	| "isvalid" unary_expr						{ $$ = cc->MakeNP1(token::T_ISVALID, $2); }
 	| incontextof_expr "isvalid"				{ $$ = cc->MakeNP1(token::T_ISVALID, $1); }

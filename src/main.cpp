@@ -23,7 +23,7 @@ int main() {
     std::wstringstream tvPInitTJSScript;
     std::wfstream startupTJS{
             // R"(D:\Users\Li_Dong\CLionProjects\TJSCompiler\bin\Windows\test_function.tjs)",
-            R"(D:\Users\Li_Dong\CLionProjects\TJSCompiler\bin\Windows\startup.tjs)",
+            R"(/Users/lidong/Documents/TJSCompiler/bin/Darwin/startup.tjs)",
             std::ios::in
     };
     startupTJS.imbue(utf_8_locale);

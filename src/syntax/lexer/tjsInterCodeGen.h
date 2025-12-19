@@ -119,7 +119,7 @@ namespace TJS {
 
         void Clear();
 
-        void SetOpecode(tjs_int op) { Op = op; }
+        void SetOpcode(tjs_int op) { Op = op; }
         void SetPosition(tjs_int pos) { Position = pos; }
 
         void SetValue(const tTJSVariant& val) {

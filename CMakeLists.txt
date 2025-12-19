@@ -10,45 +10,55 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib/${CMAKE_SYSTEM_NAME
 
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake;${CMAKE_MODULE_PATH}")
 
+set(GEN_CODE_BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR}/gen)
+
+if(NOT EXISTS ${GEN_CODE_BINARY_DIR})
+    file(MAKE_DIRECTORY ${GEN_CODE_BINARY_DIR})
+endif()
+
+add_executable(${PROJECT_NAME})
+
 add_compile_definitions(${PROJECT_NAME} UNICODE _UNICODE
 
     # 抑制codecvt警告
     _SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING
 )
 
-# bison generate parse
-# find_package(BISON REQUIRED)
-# find_package(FLEX REQUIRED)
-# file(GLOB BISON_FILES "${CMAKE_SOURCE_DIR}/src/syntax/bison/*.y")
-# foreach (BISON_FILE ${BISON_FILES})
-# get_filename_component(FILE_NAME ${BISON_FILE} NAME_WE)
-#
-# BISON_TARGET(MY_PARSER ${BISON_FILE}
-# ${CMAKE_SOURCE_DIR}/src/parser/${FILE_NAME}.tab.cpp
-# DEFINES_FILE ${CMAKE_SOURCE_DIR}/src/parser/${FILE_NAME}.tab.hpp)
-# endforeach ()
-# FLEX_TARGET(MyScanner lexer.l  ${CMAKE_CURRENT_BINARY_DIR}/lexer.cpp)
-find_program(Bison_EXECUTABLE bison NO_CMAKE_FIND_ROOT_PATH)
+find_program(BISON_EXECUTABLE NAMES win_bison.exe bison.exe bison)
+
+set(BISON_FILES
+        ${CMAKE_CURRENT_LIST_DIR}/src/syntax/bison/tjs.y
+        ${CMAKE_CURRENT_LIST_DIR}/src/syntax/bison/tjsdate.y
+        ${CMAKE_CURRENT_LIST_DIR}/src/syntax/bison/tjspp.y
+)
+
 set(PARSE_TAB_CPP_FILES)
-file(GLOB_RECURSE BISON_FILES "${CMAKE_SOURCE_DIR}/src/syntax/bison/*.y")
 
 foreach(BISON_FILE ${BISON_FILES})
     get_filename_component(FILE_NAME ${BISON_FILE} NAME_WE)
+
+    execute_process(
+            TIMEOUT 5000
+            COMMAND ${BISON_EXECUTABLE} ${BISON_FILE}
+            WORKING_DIRECTORY ${GEN_CODE_BINARY_DIR}
+            COMMAND_ECHO STDOUT
+    )
+
     add_custom_command(
         OUTPUT
-        ${CMAKE_SOURCE_DIR}/src/parser/${FILE_NAME}.tab.cpp
-        ${CMAKE_SOURCE_DIR}/src/parser/${FILE_NAME}.tab.hpp
-        PRE_BUILD
+            ${GEN_CODE_BINARY_DIR}/${FILE_NAME}.tab.cpp
+            ${GEN_CODE_BINARY_DIR}/${FILE_NAME}.tab.hpp
         DEPENDS ${BISON_FILE}
-        COMMAND ${Bison_EXECUTABLE} ${BISON_FILE}
-        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/src/parser/
-        COMMENT "bison generate parse file ${BISON_FILE}"
+        COMMAND ${BISON_EXECUTABLE} ${BISON_FILE}
+        WORKING_DIRECTORY ${GEN_CODE_BINARY_DIR}
+        COMMENT "Generate Bison File From ${BISON_FILE}"
     )
-    list(APPEND PARSE_TAB_CPP_FILES
-        ${CMAKE_SOURCE_DIR}/src/parser/${FILE_NAME}.tab.cpp)
+    list(APPEND PARSE_TAB_CPP_FILES ${GEN_CODE_BINARY_DIR}/${FILE_NAME}.tab.cpp)
 endforeach()
 
 add_custom_target(GENERATE_CPP_FILES DEPENDS ${PARSE_TAB_CPP_FILES})
+
+add_dependencies(${PROJECT_NAME} GENERATE_CPP_FILES)
 
 find_package(Python3 REQUIRED)
 execute_process(
@@ -62,8 +72,7 @@ execute_process(
 
 # src/syntax/lexer/tjsDateWordMap.cpp
 # ----------------------------------- source ----------------------------------- #
-add_executable(
-    ${PROJECT_NAME}
+target_sources(${PROJECT_NAME} PRIVATE
     ${PARSE_TAB_CPP_FILES}
     src/main.cpp
     src/syntax/tjs.cpp
@@ -111,6 +120,7 @@ add_executable(
 target_include_directories(
     ${PROJECT_NAME}
     PRIVATE
+    ${GEN_CODE_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}/src/parser
     ${CMAKE_SOURCE_DIR}/src/syntax
     ${CMAKE_SOURCE_DIR}/src/syntax/lexer
@@ -135,4 +145,3 @@ add_compile_definitions(ONIG_EXTERN=extern)
 
 # ------------------------------ import library ------------------------------- #
 target_link_libraries(${PROJECT_NAME} PRIVATE onig)
-add_dependencies(${PROJECT_NAME} GENERATE_CPP_FILES)

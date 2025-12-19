@@ -245,8 +245,8 @@ namespace TJS {
 
         tTJSInternalParseStringResult status = psrNone;
 
-        for (; *(*ptr);) {
-            if (*(*ptr) == TJS_W('\\')) {
+        while (**ptr) {
+            if (**ptr == TJS_W('\\')) {
                 // escape
                 if (!TJSNext(ptr)) break;
                 if (*(*ptr) == TJS_W('x') || *(*ptr) == TJS_W('X')) {
@@ -1447,7 +1447,7 @@ namespace TJS {
 
         tjs_char *s, *d;
         s = d = str.Independ();
-        while (*s) {
+        for (int i = 0; *s && i < nch; i++) {
             // eliminate TJS_SKIP_CODE
             if (*s == TJS_SKIP_CODE) {
                 s++;
