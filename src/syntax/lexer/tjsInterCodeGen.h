@@ -162,6 +162,7 @@ namespace TJS {
         the object can be directly treated as function, class, property handlers.
     */
 
+    // 相当于Chunk?
     class tTJSInterCodeContext : public tTJSCustomObject {
         typedef tTJSCustomObject inherited;
 
@@ -304,7 +305,7 @@ namespace TJS {
         tjs_int CodeAreaCapa;
         tjs_int CodeAreaSize;
 
-        tTJSVariant** _DataArea;
+        tTJSVariant** _DataArea; // 常量区?
         tjs_int _DataAreaSize;
         tjs_int _DataAreaCapa;
         tTJSVariant* DataArea;

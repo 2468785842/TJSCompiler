@@ -474,6 +474,8 @@ void TJSThrowNullAccess();
             Object.ObjThis = objthis;
         }
 
+        [[nodiscard]] bool AsBool() const { return this->AsInteger() == 1; }
+
         //---- constructor ------------------------------------------------------
 
         TJS_METHOD_DEF(TJS_METHOD_RET_EMPTY, tTJSVariant, ()): tTJSVariant_S() {

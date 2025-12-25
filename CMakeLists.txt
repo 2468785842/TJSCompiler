@@ -16,7 +16,7 @@ if(NOT EXISTS ${GEN_CODE_BINARY_DIR})
     file(MAKE_DIRECTORY ${GEN_CODE_BINARY_DIR})
 endif()
 
-add_executable(${PROJECT_NAME})
+add_library(${PROJECT_NAME})
 
 add_compile_definitions(${PROJECT_NAME} UNICODE _UNICODE
 
@@ -74,7 +74,7 @@ execute_process(
 # ----------------------------------- source ----------------------------------- #
 target_sources(${PROJECT_NAME} PRIVATE
     ${PARSE_TAB_CPP_FILES}
-    src/main.cpp
+#    src/main.cpp
     src/syntax/tjs.cpp
     src/syntax/tjsArray.cpp
     src/syntax/tjsBinarySerializer.cpp
@@ -119,7 +119,7 @@ target_sources(${PROJECT_NAME} PRIVATE
 
 target_include_directories(
     ${PROJECT_NAME}
-    PRIVATE
+    PUBLIC
     ${GEN_CODE_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}/src/parser
     ${CMAKE_SOURCE_DIR}/src/syntax
@@ -145,3 +145,5 @@ add_compile_definitions(ONIG_EXTERN=extern)
 
 # ------------------------------ import library ------------------------------- #
 target_link_libraries(${PROJECT_NAME} PRIVATE onig)
+
+add_subdirectory(tests)

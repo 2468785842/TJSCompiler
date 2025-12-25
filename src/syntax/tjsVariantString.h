@@ -184,6 +184,7 @@ namespace TJS {
         }
 
         TJS_CONST_METHOD_DEF(TJS_METHOD_RET(const tjs_char *), operator const tjs_char *, ()) {
+            if (!LongString) const_cast<tjs_char*>(ShortString)[Length] = '\0';
             return LongString ? LongString : ShortString;
         }
 

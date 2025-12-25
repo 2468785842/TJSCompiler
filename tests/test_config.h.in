@@ -1,0 +1,8 @@
+#ifndef KRKR2_TEST_CONFIG_H
+#define KRKR2_TEST_CONFIG_H
+#include "tjs.h"
+
+#cmakedefine TEST_FILES_PATH "@TEST_FILES_PATH@"
+extern tTJS *tvPScriptEngine;
+
+#endif
