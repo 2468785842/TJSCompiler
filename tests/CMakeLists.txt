@@ -13,8 +13,9 @@ set(TEST_FILES_PATH ${CMAKE_CURRENT_SOURCE_DIR}/test_files)
 configure_file(test_config.h.in test_config.h)
 
 set(SOURCES
-        # expression_test.cpp
-        # function_test.cpp
+#         expression_test.cpp
+        function_test.cpp
+        scope_test.cpp
         # loop_test.cpp
         # ieee_test.cpp
         # oop_test.cpp
