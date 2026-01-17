@@ -22,12 +22,12 @@ TEST_CASE("作用域 - 上层访问") {
         outer();
         return r;
     )";
-    auto *blk = new tTJSScriptBlock(tvPScriptEngine);
-
     tTJSVariant var;
-    blk->SetText(&var, syntax.c_str(), nullptr, false);
+    const auto tjs = new tTJS{};
+    tjs->ExecScript(syntax, &var);
+
     REQUIRE(var.AsInteger() == 5);
-    blk->Release();
+    tjs->Release();
 }
 
 
@@ -40,10 +40,10 @@ TEST_CASE("作用域 - 父类静态变量访问") {
         }
         return (new Derived()).getSuperA();
     )";
-    auto *blk = new tTJSScriptBlock(tvPScriptEngine);
-
     tTJSVariant var;
-    blk->SetText(&var, syntax.c_str(), nullptr, false);
+    const auto tjs = new tTJS{};
+    tjs->ExecScript(syntax, &var);
+
     REQUIRE(var.AsInteger() == 1);
-    blk->Release();
+    tjs->Release();
 }

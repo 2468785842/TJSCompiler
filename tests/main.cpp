@@ -42,6 +42,6 @@ NULL, &val, global);
     REGISTER_OBJECT(Debug, TVPCreateNativeClass_Debug())
 
     int result = Catch::Session().run(argc, argv);
-
+    tvPScriptEngine->Release();
     return result;
 }
