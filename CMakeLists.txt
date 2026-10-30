@@ -28,6 +28,7 @@ set(BISON_FILES
         ${CMAKE_CURRENT_LIST_DIR}/src/syntax/bison/tjspp.y
 )
 
+
 set(PARSE_TAB_CPP_FILES)
 
 foreach(BISON_FILE ${BISON_FILES})
@@ -111,6 +112,7 @@ target_sources(${PROJECT_NAME} PRIVATE
     src/syntax/lexer/tjsDateParser.cpp
     src/syntax/lexer/tjsInterCodeGen.cpp
     src/syntax/library/DebugInterface.cpp
+    src/syntax/library/ScriptsInterface.cpp
 )
 
 target_include_directories(
@@ -141,5 +143,15 @@ add_compile_definitions(ONIG_EXTERN=extern)
 
 # ------------------------------ import library ------------------------------- #
 target_link_libraries(${PROJECT_NAME} PRIVATE onig)
+
+# CLI 入口（Ciallang 对拍/基准依赖 TJSCompiler <script> 与 --dump <script.tjs> <out.tjsbc>）：
+# 上游库化重构后 main.cpp 不再入库，这里单独成可执行；运行产物落 bin/<平台>，
+# 与库的导入库（构建根 TJSCompiler.lib）互不冲突
+add_executable(TJSCompilerCli src/main.cpp)
+target_link_libraries(TJSCompilerCli PRIVATE TJSCompiler)
+add_dependencies(TJSCompilerCli GENERATE_CPP_FILES)
+set_target_properties(TJSCompilerCli PROPERTIES
+        OUTPUT_NAME TJSCompiler
+        RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/$<LOWER_CASE:${CMAKE_HOST_SYSTEM_NAME}>)
 
 add_subdirectory(tests)
