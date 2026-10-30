@@ -12,6 +12,7 @@ gen
 ext
 lib
 build
+bin
 
 **/*.exe
 **/*.pdb

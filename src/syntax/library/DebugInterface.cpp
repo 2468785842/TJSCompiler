@@ -226,7 +226,7 @@ void tTJSNC_Debug::TVPAddLog(const ttstr& line, bool appendtoimportant) {
     p++;
     TJS_strcpy(p, line.c_str());
     if (TVPOnLog) TVPOnLog(buf);
-    std::wcout << buf.c_str();
+    std::wcout << buf.c_str() << std::endl;
 
     if (TVPLoggingToFile) TVPLogStreamHolder.Log(buf);
 }
