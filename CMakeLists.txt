@@ -149,6 +149,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE onig)
 # 与库的导入库（构建根 TJSCompiler.lib）互不冲突
 add_executable(TJSCompilerCli src/main.cpp)
 target_link_libraries(TJSCompilerCli PRIVATE TJSCompiler)
+target_compile_definitions(TJSCompilerCli PRIVATE TJS_SOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}")
 add_dependencies(TJSCompilerCli GENERATE_CPP_FILES)
 set_target_properties(TJSCompilerCli PROPERTIES
         OUTPUT_NAME TJSCompiler

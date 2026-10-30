@@ -1,6 +1,7 @@
 #include "ScriptsInterface.h"
 
 #include <codecvt>
+#include <filesystem>
 #include <fstream>
 #include <locale>
 #include <sstream>
@@ -29,7 +30,7 @@ namespace TJS {
         // krkr2 TVPCreateTextStreamForRead 的 CLI 简化版：UTF-8 文本读取
         //（与 main.cpp 读启动脚本同款 locale 管线）
         std::wstring TVPReadStorageText(const std::wstring &path) {
-            std::wfstream stream(path, std::ios::in);
+            std::wfstream stream(std::filesystem::path(path), std::ios::in);
             if(!stream) {
                 TJS_eTJSError((std::wstring(L"cannot open storage: ") + path).c_str());
             }
